@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Report {{report.test_pit}} - {{report.project_number}}</title>
+</head>
+<body class = 'flex flex-col justify-between items-center bg-stone-300 h-screen gap-6'>
+    <header class="w-full">
+        <a href="{% url 'report:home' %}" class="w-full" ><div class="bg-yellow-400 text-center w-full text-2xl">HOME</div></a>
+    </header>
+    <div class="w-1/4 flex flex-col justify-center items-center gap-10 bg-white p-6 rounded-xl">
+            <div>
+            <p class="text-center text-2xl">{{report.project_number}}</p>
+            <p class="text-center">{{report.test_pit}}</p>
+            <p>{{report.coordinator}}</p>
+            <p>{{report.tech_name}}</p>
+            <p>{{report.date_project}}</p>
+            {% if report.utility_found == True %}
+            <p>The utility was found</p>  
+            {% else %}
+            <p>No utility was found</p>
+            {% endif %}
+            <p>{{report.weather}}</p>
+            <p>{{report.timeproject}}</p>
+            <img src="{{report.before_excavation.url}}" alt="">
+            </div>   
+    
+    <a href="{% url 'report:convert_report' report.test_pit %}"><div class="bg-green-500 text-white rounded-xl px-4 py-2"> DOWNLOAD</div></a>
+    </div>
+    <footer class="w-full">
+        <a href="{% url 'report:home' %}" class="w-full" ><div class="bg-yellow-400 text-center w-full text-2xl">HOME</div></a>
+    </footer>
+</body>
+</html>

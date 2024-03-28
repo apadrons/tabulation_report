@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Report List</title>
+</head>
+<body class = 'flex justify-center items-center bg-stone-300'>
+    <div class="my-4 w-1/2 flex flex-col  justify-center items-center gap-6">
+        <div class="bg-white text-2xl px-4 py-2">List of Test Pits</div>
+        {% for report in reports %}
+            <a href="{% url 'report:single_report' report.test_pit %}" class="w-1/2 bg-white hover:bg-green-300 px-4 py-2"><div >
+            <p class="text-center">{{report.test_pit}}</p>
+            {{report.coordinator}}<br>
+            {{report.tech_name}}<br>
+            {{report.date_project}}<br>
+            {% if report.utility_found == True %}
+            <p>The utility was found</p>  
+            {% else %}
+            <p>No utility was found</p>
+            {% endif %}
+            {{report.weather}}<br>
+            {{report.timeproject}}<br>
+            {{report.project_number}}<br>
+            {% if report.before_excavation %}
+            <img src="{{report.before_excavation.url}}" alt="">
+            {% endif %}
+            </div></a>
+        {% endfor %}
+   
+    </div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>TEST</title>
+</head>
+<body class = 'flex justify-center items-center bg-stone-300'>
+  <div class="w-3/4 my-4 flex flex-col justify-center items-center">
+  <form action="{% url 'report:project_form' %}" class="grid grid-cols-1" method='post'>
+    {% csrf_token %}
+    {% if error %}
+      <div class="bg-red-400 px-6 py-4 rounded-xl">{{error}}</div>
+    {% endif %}
+
+    {% for field in form %}
+    <div class="h-full">
+      <div class='text-center'>{{field.label_tag}}</div>
+      <div class="mb-4 text-center text-sm">{{field}}</div>
+    </div>
+    {% endfor %}
+  
+  <button type='submit'  class=' bg-green-400 rounded-xl px-2 text-center'>Submit</button>
+</form>
+    </div>
+</body>
+</html>
