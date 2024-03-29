@@ -1,26 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <title>TEST</title>
-</head>
-<body class = 'flex flex-col justify-between items-center bg-stone-300 h-screen gap-6'>
-  <header class="w-full">
-      <a href="{% url 'report:home' %}" class="w-full" ><div class="bg-yellow-400 text-center w-full text-2xl">HOME</div></a>
-  </header>
+{% extends 'report/base.html' %}
+{% block title %} Create report {% endblock %}
+{% block content %}
   <div class="center w-1/2 flex justify-center items-center flex-col gap-10">
-  <a href="{% url 'report:project_list' %}"><div class='w-36 py-2 px-4 rounded-xl text-xl bg-blue-500  text-center text-white hover:bg-white hover:text-blue-500'>Project List</div></a>
-  <a href="{% url 'report:report_list' %}"><div class='w-36 py-2 px-4 rounded-xl text-xl bg-blue-500 text-center text-white hover:bg-white hover:text-blue-500'>Report List</div></a>
-  <a href="{% url 'report:project_form' %}"><div class='w-36 py-2 px-4 rounded-xl text-xl bg-blue-500 text-center text-white hover:bg-white hover:text-blue-500'>Register a project</div></a>
-  <a href="{% url 'report:report_form' %}"><div class='w-36 py-2 px-4 rounded-xl text-xl bg-blue-500 text-center text-white hover:bg-white hover:text-blue-500'>Register a report</div></a>
+  <a href="{% url 'report:project_list' %}"><div class='w-36 py-2 px-4 rounded-xl text-xl bg-blue-500  text-center text-white hover:bg-white hover:text-blue-500 border-2 border-blue-500 '>Project List</div></a>
+  <a href="{% url 'report:report_list' %}"><div class='w-36 py-2 px-4 rounded-xl text-xl bg-blue-500 text-center text-white hover:bg-white hover:text-blue-500 border-2 border-blue-500 '>Report List</div></a>
+  <a href="{% url 'report:project_form' %}"><div class='w-36 py-2 px-4 rounded-xl text-xl bg-blue-500 text-center text-white hover:bg-white hover:text-blue-500 border-2 border-blue-500 '>Register a project</div></a>
+  <a href="{% url 'report:report_form' %}"><div class='w-36 py-2 px-4 rounded-xl text-xl bg-blue-500 text-center text-white hover:bg-white hover:text-blue-500 border-2 border-blue-500 '>Register a report</div></a>
 
     
   </div>
-    <footer class="w-full">
-        <a href="{% url 'report:home' %}" class="w-full" ></a>
-    </footer>
-</body>
-</html>
+{% endblock %}

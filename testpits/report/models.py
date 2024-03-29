@@ -18,7 +18,7 @@ class Project(models.Model):
 
 
 class Report(models.Model):
-  test_pit = models.IntegerField(default=1,unique=True)
+  test_pit = models.IntegerField(default=1)
   field_coordinator = models.CharField(max_length=200,default='Paul Monteleone')
   tech_name = models.CharField(max_length=200,default='Paul Monteleone')
   weather = models.CharField(default='Sunny', max_length=200)
@@ -50,9 +50,9 @@ class Report(models.Model):
 
 
   #IMAGES
-  before_excavation = models.ImageField(upload_to='test_pits/',null=True,blank=True)
-  excavated_area= models.ImageField(upload_to='test_pits/',null=True,blank=True)
-  after_excavation= models.ImageField(upload_to='test_pits/',null=True,blank=True)
+  before_excavation = models.ImageField(upload_to='test_pits/',null=True,blank=True,default='noimage.jpg')
+  excavated_area= models.ImageField(upload_to='test_pits/',null=True,blank=True,default='noimage.jpg')
+  after_excavation= models.ImageField(upload_to='test_pits/',null=True,blank=True,default='noimage.jpg')
 
 
   

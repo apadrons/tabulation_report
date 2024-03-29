@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Tabulation Report | {% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                yellow: '#fde047',
+              },
+              fontFamily: {
+                sans: ['Graphik', 'sans-serif'],
+                serif: ['Merriweather', 'serif'],
+                roboto:['Roboto Condensed', 'sans-serif'],
+              },
+              backgroundImage:{
+                'machine-pattern': "url('./images/equip.jpg')",
+              },
+              screens: {
+                'sm': '600px',
+                // => @media (min-width: 640px) { ... }
+
+                'md': '768px',
+                // => @media (min-width: 768px) { ... }
+
+                'lg': '1024px',
+                // => @media (min-width: 1024px) { ... }
+
+                'xl': '1280px',
+                // => @media (min-width: 1280px) { ... }
+
+                '2xl': '1536px',
+                // => @media (min-width: 1536px) { ... }
+                }
+            }
+          }
+        }
+
+    </script>
+    <style>
+
+      /* PREFERRED FONT */
+            .roboto-condensed {
+            font-family: "Roboto Condensed", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 600;
+            font-style: normal;
+          }
+        /* PREFERRED FONT title*/
+            .roboto-condensed-title {
+            font-family: "Roboto Condensed", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 900;
+            font-style: normal;
+          }
+
+          .russo-one-regular {
+            font-family: "Russo One", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+          }
+
+
+      .image-container {
+        width: auto; /* Set the desired width */
+        max-height: 200px; /* Set the desired height */
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+  
+      .cropped-image {
+        width: 100%; /* Ensure the image takes 100% width of the container */
+        height: auto; /* Maintain the aspect ratio of the image */
+        display: block;
+
+        
+      }
+      </style>
+
+      <!-- LEAF CSS -->
+      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""/>
+       <!-- LEAF JS SCRIPT -->
+      <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""></script>
+
+
+      <!-- FONT -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed&display=swap" rel="stylesheet">
+
+
+</head>
+<body class="bg-white h-screen flex flex-col roboto-condensed" >
+  
+  <header class= "z-40 bg-yellow top-0 w-full flex flex-row align-middle justify-between items-center p-4 ">
+      <a href='/'><h1 class='font-bold pl-4 sm:text-5xl  text-xl russo-one-regular tracking-wider' >Tabulation Report</h1></a>
+      <nav>
+      </nav>
+  </header>
+  <main class="flex flex-col justify-center items-center flex-1">
+    
+        {% block content %}
+        {% endblock %}
+  </main>
+    <footer class="font-mono bg-yellow h-1/8 shadow dark:bg-yellow-800 whitespace-nowrap w-full mt-4">
+      <div class="w-full mx-auto max-w-screen-xl p-2 md:flex md:items-center md:justify-between">
+        <span class="text-sm text-black sm:text-center">© 2023 <a href="#" class="hover:underline">Tabulation Report™</a>. All Rights Reserved.
+      </span>
+      </div>
+  </footer>
+
+</body>
+</html>
